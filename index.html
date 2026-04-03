@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--this makes the website responsive -->
+    <title>Raneem Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>  
+    <header class="site-header">
+    <!-- Main navigation section for the website -->
+    <nav class="nav" aria-label="Primary">
+
+    <div class="nav-actions">
+      <!-- Theme toggle button with moon icon -->
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme">
+        🌙
+      </button>
+
+      <!-- Font size toggle button with "A+" label -->
+      <button id="fontToggle" class="icon-btn" type="button" aria-label="Toggle font size">
+        A+
+      </button>
+
+      <!-- Mobile menu toggle button with hamburger icon -->
+      <button id="menuToggle" class="icon-btn menu-btn" type="button"
+              aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" id="desktopLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Mobile menu panel -->
+     <div class="mobile-menu hidden" id="menu" aria-label="Mobile menu">
+      <div class="mobile-menu__header">
+        <button id="closeMenu" class="icon-btn" type="button" aria-label="Close menu">✖</button>
+      </div>
+
+      <ul class="mobile-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Background overlay displayed when mobile menu is active -->
+    <div class="backdrop hidden" id="backdrop" aria-hidden="true"></div>
+  </nav>
+</header>
+
+    <section id="home">
+        <!-- Fixed dimensions prevent layout shift during page load -->
+        <img src="assets/images/girl-photo.png" alt="Profile Picture" height="200" width="200" class="profile-pic">
+         <h1 class="hero-title">Hello, I'm <span class="hero-name">Raneem Alshahrani</span></h1>
+         <p>Software Engineering Student | Aspiring Software Developer</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>A software Engineering student at KFUPM interested in building reliable 
+        software systems and applying data and AI techniques to real-world problems.
+        I enjoy working on software projects that require clear problem analysis, structured 
+        design, and careful implementation. Through my academic projects, I have gained
+        experience in requirements engineering, database design, and building systems that 
+        balance functionality, usability, and constraints. I am particularly interested 
+        in understanding how software decisions impact real users and long-term system quality.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <!-- Project controls: filter + sorting -->
+    <div class="project-controls">
+
+    <!-- Category filter -->
+    <div class="project-filter">
+  <label for="project-filter-btn">Filter by Category:</label>
+
+  <div class="custom-select" id="project-filter-wrap">
+    <button type="button" id="project-filter-btn" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+      All Projects
+    </button>
+
+    <ul class="custom-select-menu hidden" id="project-filter-menu" role="listbox">
+      <li class="custom-option selected" data-value="all" role="option" aria-selected="true">All Projects</li>
+      <li class="custom-option" data-value="web" role="option">Web Project</li>
+      <li class="custom-option" data-value="database" role="option">Database</li>
+      <li class="custom-option" data-value="requirements" role="option">Requirements</li>
+      <li class="custom-option" data-value="ai" role="option">AI</li>
+    </ul>
+  </div>
+</div>
+
+    <!-- Sort buttons -->
+    <div class="project-sort">
+        <button id="sort-year" class="sort-btn" type="button">Sort by Date</button>
+        <button id="sort-name" class="sort-btn" type="button">Sort by Name</button>
+    </div>
+
+</div>
+        <div id="project-grid" class="projects">
+        <div class="project" data-category="database" data-title="Horse Racing System" data-year="2025">
+            <img src="assets/images/Horse Racing System.png" alt="Horse Racing System" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Horse Racing System</h3>
+               <div class="project-meta">
+                   <span class="project-year">2025</span>
+                   <span class="project-category">Database Project</span>
+               </div>
+              <p class="project-desc">Developed a database-driven application using JavaFX and MySQL, implementing complex SQL queries and stored procedures. Ensured data integrity through rigorous testing.</p>
+              <a class="project-link" href="https://github.com/RaneemAlshahrani/Horse-Racing-System.git">Learn More →</a>
+            </div>
+        </div>
+        <div class="project" data-category="requirements" data-title="KFUPM Student Impact Hub" data-year="2024">
+            <img src="assets/images/KFUPM Student Impact Hub.png" alt="KFUPM Student Impact Hub" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">KFUPM Student Impact Hub</h3>
+              <div class="project-meta">
+                  <span class="project-year">2024</span>
+                  <span class="project-category">Requirements Project</span>
+              </div>
+              <p class="project-desc">Produced a complete requirements engineering document with stakeholder analysis and use-case modeling. Designed and validated interactive UI/UX prototypes in Figma.</p>
+              <a class="project-link" href="https://github.com/RaneemAlshahrani/KFUPM-Student-Impact-Hub.git">Learn More →</a>
+            </div>
+        </div>        
+        <div class="project" data-category="ai" data-title="Data Analysis & AI Project" data-year="2024">
+            <img src="assets/images/Data Analysis & AI Project.png" alt="Data Analysis & AI Project" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Data Analysis & AI Project</h3>
+              <div class="project-meta">
+                  <span class="project-year">2024</span>
+                  <span class="project-category">AI Project</span>
+              </div>
+              <p class="project-desc">Applied data preprocessing and multiple AI models using Python to analyze real-world datasets. Evaluated model performance and documented analytical insights.</p>
+              <a class="project-link" href="https://github.com/RaneemAlshahrani/Data-Analysis-AI-Project.git">Learn More →</a>
+            </div>
+        </div>
+        <div class="project" data-category="requirements" data-title="Club Zone - Software Requirements Specification" data-year="2023">
+            <img src="assets/images/Club Zone - Software Requirements Specification.png" alt="Club Zone SRS" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Club Zone - Software Requirements Specification</h3>
+              <div class="project-meta">
+                  <span class="project-year">2023</span>
+                  <span class="project-category">Requirements Project</span>
+              </div>
+              <p class="project-desc">Authored a comprehensive Software Requirements Specification for a student club management platform covering functional and non-functional requirements, registration, and event workflows.</p>
+              <a class="project-link" href="https://github.com/RaneemAlshahrani/Club-Zone---Software-Requirements-Specification.git">Learn More →</a>
+            </div>
+        </div>
+        </div>
+        <p id="no-projects-msg" hidden>No projects found.</p>
+    </section>
+    <section id="skills">
+    <h2 class="skills-title">Skills</h2>
+
+    <div>
+        <h3>Front-end</h3>
+        <ul class="skills-row">
+        <li><img src="assets/images/html.png" alt="HTML"></li>
+        <li><img src="assets/images/css.png" alt="CSS"></li>
+        <li><img src="assets/images/javascript.png" alt="JavaScript"></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Back-end</h3>
+        <ul class="skills-row">
+        <li><img src="assets/images/python.png" alt="Python"></li>
+        <li><img src="assets/images/java.png" alt="Java"></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Databases</h3>
+        <ul class="skills-row">
+        <li><img src="assets/images/mysql.png" alt="MySQL"></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Tools</h3>
+        <ul class="skills-row">
+        <li><img src="assets/images/git.png" alt="Git"></li>
+        <li><img src="assets/images/github.png" alt="GitHub" class="dark-invert"></li>
+        <li><img src="assets/images/figma-dark.png" alt="Figma"></li>
+        </ul>
+    </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div id="form-feedback" class="form-message" aria-live="polite"></div>
+        <!-- Contact form sends user input via default mail client -->
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Send">
+        </form>
+    </section>  
+    <footer>
+        <ul>
+            <li><a href="mailto:raneemal14251026@gmail.com"><img src="assets/images/email.png" alt="Email Icon" height="50" width="50" class="icon"></a></li>
+            <li><a href="https://www.linkedin.com/in/raneem-alshahrani"><img src="assets/images/linkedin.png" alt="LinkedIn Icon" height="50" width="50" class="icon"></a></li>
+            <li><a href="https://github.com/RaneemAlshahrani"><img src="assets/images/github.png" alt="GitHub Icon" height="50" width="50" class="icon"></a></li>
+        </ul>
+        <p>&copy; 2026 Raneem Alshahrani. All rights reserved.</p>
+    </footer>
+
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+     <script>
+        emailjs.init("9JeFd_jTxIZdZTrjk"); // Initialize EmailJS with your user ID
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
