@@ -13,7 +13,7 @@ This project is a personal portfolio website built using HTML, CSS, and JavaScri
 
 # Project Structure
 ```
-202277080-Raneem-Alshahrani-assignment2/
+202277080-Raneem-Alshahrani-assignment3/
 ├── README.md
 ├── index.html
 ├── css/
@@ -35,7 +35,7 @@ This project is a personal portfolio website built using HTML, CSS, and JavaScri
 3. Click “Clone Repository” on the start screen.
 4. Paste the repository URL:
 ```bash
-https://github.com/RaneemAlshahrani/202277080-Raneem-Alshahrani-assignment2.git
+https://github.com/RaneemAlshahrani/202277080-Raneem-Alshahrani-assignment3.git
 ```
 5. Choose a folder on your computer to save the project.
 6. When prompted, click “Trust the Authors”.

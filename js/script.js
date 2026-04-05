@@ -125,12 +125,16 @@
     "#home",              // Hero section
     "#home .profile-pic", // Profile picture
     "#home .hero-title",  // Hero title
+    "#home p",   // Hero description
     "#about",             // About section
     "#projects",          // Projects section
     ".project",           // Individual project cards
     "#skills",            // Skills section
     "#contact",           // Contact section
-    "footer"              // Footer
+    "footer",              // Footer
+    ".github-title",       // GitHub title
+    ".repos-container",       // Container for GitHub repos
+    "#timer"               // Timer section
   ];
 
   // Collect all unique DOM elements matching the selectors
@@ -308,3 +312,187 @@ contactForm?.addEventListener('submit', async (e) => {
 });
 
 filterProjects();
+
+// fetch my repo from github api and display it after projects section
+// ===== GitHub API =====
+const reposContainer = document.getElementById("github-repos");
+const GitHubUserName = "RaneemAlshahrani";
+
+// ===== Load repos =====
+async function fetchGitHubRepos() {
+  if (!reposContainer) return;
+
+  reposContainer.innerHTML = `<p class="loading-message">Loading repositories...</p>`;
+
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${GitHubUserName}/repos?sort=updated`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.status}`);
+    }
+
+    let repos = await response.json();
+
+    // Remove forks
+    repos = repos.filter(repo => !repo.fork);
+
+    // Sort by latest update
+    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+    if (repos.length === 0) {
+      reposContainer.innerHTML = `<p class="empty-message">No repositories found.</p>`;
+      return;
+    }
+
+    reposContainer.innerHTML = repos.map(repo => {
+      const color = getLanguageColor(repo.language);
+
+      return `
+        <article class="repo-card">
+          <div class="repo-header">
+            <h3>
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+                ${repo.name}
+              </a>
+            </h3>
+            <span class="repo-badge public">Public</span>
+          </div>
+
+          <p class="repo-description">
+            ${repo.description || 'No description available.'}
+          </p>
+
+          <div class="repo-meta">
+            <span class="repo-language">
+              ${
+                repo.language
+                  ? `<span class="language-dot" style="background:${color}"></span>${repo.language}`
+                  : ''
+              }
+            </span>
+
+            <span class="repo-updated">
+              Updated ${formatDate(repo.updated_at)}
+            </span>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+  } catch (error) {
+    console.error("GitHub API Error:", error);
+
+    reposContainer.innerHTML = `
+      <p class="error-message">
+        Unable to load repositories. Please try again later.
+      </p>
+    `;
+  }
+}
+
+// ===== Date formatter =====
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffDays = Math.ceil((now - date) / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "today";
+  if (diffDays === 1) return "yesterday";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+  if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+  return `${Math.floor(diffDays / 365)} years ago`;
+}
+
+// ===== Language colors =====
+function getLanguageColor(lang) {
+  const colors = {
+    JavaScript: "#f1e05a",
+    HTML: "#e34c26",
+    CSS: "#563d7c",
+    Python: "#3572A5",
+    Java: "#b07219"
+  };
+
+  return colors[lang] || "#8b5cf6";
+}
+
+// ===== Run after page loads =====
+document.addEventListener("DOMContentLoaded", fetchGitHubRepos);
+
+// ===== Visit Timer with sessionStorage =====
+const timerElement = document.getElementById("visit-timer");
+
+// Load saved time or start from 0
+let secondsOnSite = Number(sessionStorage.getItem("time")) || 0;
+
+// Function to update display
+function updateTimerDisplay() {
+  if (secondsOnSite < 60) {
+    timerElement.textContent =
+      `${secondsOnSite} second${secondsOnSite !== 1 ? "s" : ""}`;
+  } else {
+    const minutes = Math.floor(secondsOnSite / 60);
+    const seconds = secondsOnSite % 60;
+
+    timerElement.textContent =
+      `${minutes} minute${minutes !== 1 ? "s" : ""} and ${seconds} second${seconds !== 1 ? "s" : ""}`;
+  }
+}
+
+// Show initial value immediately
+updateTimerDisplay();
+
+// Update every second
+setInterval(() => {
+  secondsOnSite++;
+  sessionStorage.setItem("time", secondsOnSite);
+  updateTimerDisplay();
+}, 1000);
+
+// Get elements
+const visitorNameInput = document.getElementById("visitor-name");
+const saveNameBtn = document.getElementById("save-name");
+const clearNameBtn = document.getElementById("clear-name");
+const nameDisplay = document.getElementById("name-display");
+
+// Load saved name from localStorage
+let savedName = localStorage.getItem("visitorName") || "";
+
+// Function to update displayed welcome message
+function updateNameUI() {
+  if (savedName.trim() !== "") {
+    nameDisplay.textContent = `Welcome, ${savedName}!`;
+  } else {
+    nameDisplay.textContent = "Welcome, guest!";
+  }
+}
+
+// Show saved name on page load
+updateNameUI();
+
+// Save name when button is clicked
+saveNameBtn.addEventListener("click", () => {
+  const enteredName = visitorNameInput.value.trim();
+
+  // Only save if input is not empty
+  if (enteredName !== "") {
+    savedName = enteredName;
+    localStorage.setItem("visitorName", savedName);
+    updateNameUI();
+
+    // Clear input after saving
+    visitorNameInput.value = "";
+  }
+});
+
+// Clear saved name
+clearNameBtn.addEventListener("click", () => {
+  savedName = "";
+  localStorage.removeItem("visitorName");
+  updateNameUI();
+  visitorNameInput.value = "";
+});
+

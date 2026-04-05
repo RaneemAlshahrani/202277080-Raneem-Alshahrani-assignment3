@@ -59,11 +59,30 @@
   </nav>
 </header>
 
+<section id="timer" class="reveal">
+  <h2 class="section-title">Time on Site</h2>
+
+  <div class="timer-box">
+    <p>You have been on this site for:</p>
+    <p id="visit-timer" class="timer">0 seconds</p>
+  </div>
+</section>
+
+    <section class="card">
+      <h2 class="visitorName">Store Visitor Name</h2>
+      <label for="visitor-name">Enter your name:</label>
+      <input type="text" id="visitor-name" placeholder="Your name" />
+      <button id="save-name" class="btn">Save Name</button>
+      <button id="clear-name" class="btn secondary">Clear Name</button>
+
+      <p id="name-display">Welcome, guest!</p>
+    </section>
+
     <section id="home">
         <!-- Fixed dimensions prevent layout shift during page load -->
         <img src="assets/images/girl-photo.png" alt="Profile Picture" height="200" width="200" class="profile-pic">
          <h1 class="hero-title">Hello, I'm <span class="hero-name">Raneem Alshahrani</span></h1>
-         <p>Software Engineering Student | Aspiring Software Developer</p>
+         <p style="font-size: large;">Software Engineering Student | Aspiring Software Developer</p>
     </section>
 
     <section id="about">
@@ -160,6 +179,17 @@
         </div>
         <p id="no-projects-msg" hidden>No projects found.</p>
     </section>
+   
+    <section id="github-projects" class="github-section">
+  <div class="section-container">
+    <h2 class="github-title">GitHub Repositories</h2>
+
+    <div id="github-repos" class="repos-container">
+      <p class="loading-message">Loading repositories...</p>
+    </div>
+  </div>
+</section>
+
     <section id="skills">
     <h2 class="skills-title">Skills</h2>
 
