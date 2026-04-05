@@ -1,176 +1,103 @@
-
 # AI Usage Report
 
 ## Overview
-This report documents how AI tools were used during the development of the personal portfolio website. AI was used as a support tool for debugging, optimization, UI improvements, and implementing interactive features required for Assignment 2 such as dynamic content handling, data validation, and user feedback.
+This project is a front-end personal portfolio website developed to showcase academic background, technical skills, and projects. It runs entirely on the client side using HTML, CSS, and JavaScript, with EmailJS for contact handling and the GitHub API for dynamic data.
 
-All AI suggestions were reviewed, modified when necessary, and tested before being integrated into the final implementation.
+The system is lightweight, responsive, and requires no backend or build tools.
+
+---
 
 ## AI Tools Used
 
 **ChatGPT**:
-* Debugging layout and JavaScript issues
-* Implementing dynamic features (filtering and sorting projects)
-* Integrating EmailJS for sending emails
-* Improving form validation and user feedback
-* Explaining modern browser APIs
+- Helped explain JavaScript concepts and API usage  
+- Assisted with debugging logic and UI issues  
 
 **Claude AI**:
-* Reviewing CSS structure
-* Identifying redundant rules
-* Suggesting performance and accessibility improvements
+- Performed code review (CSS & JS)  
+- Suggested performance optimisations  
+- Helped debug GitHub API display issue  
+- Assisted in structuring documentation  
+
+---
 
 ## Effective Use of AI
 
-AI tools were used meaningfully to solve specific development challenges rather than to generate the entire project.
+### 1. Code Review
+AI identified redundant CSS rules and inefficient JavaScript logic, improving code quality and readability.
 
-### 1. Theme Toggle with Persistence
+### 2. Performance Optimisation
+Suggested lazy loading images, using `defer`, and improving font loading to reduce load time.
 
-AI suggested using `localStorage` to preserve user preference.
+### 3. Debugging
+Helped diagnose a visibility issue in the GitHub section caused by animation + async rendering conflict.
 
-```javascript
-function applyTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-}
-```
+### 4. API Integration
+Clarified GitHub API usage and improved data handling (sorting, filtering, error handling).
 
-This ensured consistent user experience across sessions.
+### 5. Security Improvement
+Introduced sanitisation of API data to prevent XSS when using `innerHTML`.
 
-### 2. Performance-Optimized Scroll Animations
-
-Instead of using scroll event listeners, AI recommended `IntersectionObserver`.
-
-```javascript
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      obs.unobserve(entry.target);
-    }
-  });
-});
-```
-
-This reduced unnecessary computations and improved performance.
-
-### 3. Dynamic Project Filtering and Sorting
-
-**Problem**: Displaying projects dynamically based on user selection.
-**AI Role**: Suggested filtering using dataset attributes and updating the DOM without reloading.
-
-```javascript
-function filterProjects() {
-  const category = filterSelect.value;
-
-  let visible = projects.filter(p => {
-    const cat = p.dataset.category;
-    return category === 'all' || cat === category;
-  });
-
-  visible.forEach(p => projectGrid.appendChild(p));
-}
-```
-
-**Benefit**:
-
-* Real-time updates
-* Improved interactivity
-* Meets dynamic content requirement
-
-### 4. EmailJS Integration (Data Handling)
-
-**Problem**: Sending real emails without a backend server.
-**AI Role**: Guided integration of EmailJS.
-
-```javascript
-await emailjs.send("service_id", "template_id", {
-  from_name: name,
-  from_email: email,
-  subject: subject,
-  message: message
-});
-```
-
-**Benefit**:
-
-* Real email sending functionality
-* No backend required
-* Meets data handling requirement
-
-### 5. Form Validation and User Feedback
-
-**Problem**: Ensuring valid input and clear feedback.
-**AI Role**: Suggested validation logic and feedback messages.
-
-```javascript
-if (!emailRegex.test(email)) {
-  showFeedback('Please enter a valid email address.', 'error');
-}
-```
-
-**Benefit**:
-
-* Prevents invalid input
-* Improves user experience
-* Meets error handling requirement
+---
 
 ## Learning Outcomes
 
-### CSS Concepts Learned:
+### HTML Concepts Learned:
+- Semantic structure and accessibility (ARIA)
+- Responsive layout design
 
-* Using CSS variables for theming
-* Responsive layout using Flexbox and Grid
-* Accessibility improvements (contrast, reduced motion)
+### CSS Concepts Learned:
+- CSS variables and theming  
+- Avoiding redundant rules  
+- Managing specificity and `!important`  
 
 ### JavaScript Concepts Learned:
+- API fetching and async handling  
+- localStorage vs sessionStorage  
+- DOM optimisation (caching elements)  
+- IntersectionObserver behavior  
 
-* DOM manipulation and event handling
-* Using `localStorage` for persistence
-* Implementing filtering and sorting logic
-* Integrating third-party APIs (EmailJS)
-* Handling errors and user feedback
+---
 
 ## Benefits & Challenges
 
 ### Benefits
+- Faster debugging and problem-solving  
+- Improved code quality and performance  
+- Better understanding of real-world issues  
 
-* Faster debugging and problem-solving
-* Improved code structure and readability
-* Better understanding of modern JavaScript techniques
+### Challenge 1:
+GitHub repositories were not visible due to a conflict between animations and dynamically loaded content.
 
-### Challenge 1: Dynamic Filtering Not Working
+### Challenge 2:
+CSS conflicts caused by misuse of `!important`, leading to unexpected layout behavior.
 
-* Problem: JavaScript errors stopped filtering
-* AI Role: Helped identify undefined variables and fix logic
-* Benefit: Correct dynamic behavior and bug-free interaction
+### Challenge 3:
+Project filtering and sorting logic interfered with each other, requiring better state management to ensure correct results.
 
-### Challenge 2: Email Sending Errors
+### Challenge 4:
+Form validation required handling multiple edge cases (empty fields, invalid email, async submission feedback).
 
-* Problem: EmailJS returned errors (400 status)
-* AI Role: Identified mismatched template variables
-* Benefit: Successful email delivery and improved debugging skills
+---
 
 ## Responsible Use & Modifications
 
-* All AI-generated code was reviewed and rewritten where necessary
-* Suggestions were validated through testing and documentation
-* Only understood implementations were used
-* Code was adapted to fit project requirements
+- All AI outputs were reviewed and tested  
+- Code was modified to fit project requirements  
+- No full features were copied directly  
+- Understanding was prioritised over copying  
 
-AI enhanced development while maintaining academic integrity and full ownership.
+---
 
 ## Innovation
 
-AI was used creatively to improve both functionality and user experience:
+- Integrated live GitHub data dynamically  
+- Combined filtering + sorting system  
+- Added visitor personalization and session timer  
+- Applied performance and security improvements beyond requirements  
 
-* Implementing dynamic filtering and sorting of projects
-* Integrating EmailJS for real email functionality
-* Enhancing user feedback with clear success/error messages
-* Using IntersectionObserver for efficient animations
-
-AI acted as a learning assistant rather than replacing development effort.
+---
 
 ## Conclusion
 
-AI tools supported debugging, optimization, dynamic feature implementation, and data handling throughout the project. Their integration improved development efficiency while preserving originality, learning outcomes, and full ownership of the final implementation.
+AI was used as a support tool for debugging, optimisation, and learning. It improved development efficiency without replacing understanding or originality. The final project reflects independent implementation enhanced by AI-assisted refinement.

@@ -27,7 +27,7 @@ The system follows a static front-end architecture composed of:
 ### Folder Structure
 
 ```
-202277080-Raneem-Alshahrani-assignment2/
+202277080-Raneem-Alshahrani-assignment3/
 ├── README.md
 ├── index.html
 ├── css/
@@ -166,7 +166,7 @@ These messages ensure the user always understands what is happening.
 2. Ensure all project folders remain in the same directory structure.
 
 ```
-202277080-Raneem-Alshahrani-assignment2/
+202277080-Raneem-Alshahrani-assignment3/
 ├── README.md
 ├── index.html
 ├── css/

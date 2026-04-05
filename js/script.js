@@ -1,8 +1,3 @@
-/* ============================================================
-   script.js — Raneem Alshahrani Portfolio
-   Optimised: single IIFE, no repeated queries, clean logic
-   ============================================================ */
-
 (() => {
   'use strict';
 
