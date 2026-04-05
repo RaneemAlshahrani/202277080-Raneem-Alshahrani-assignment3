@@ -40,7 +40,7 @@
     applyFont(localStorage.getItem('fontSize') === '18px' ? '16px' : '18px');
   });
 
-  // ── Mobile menu ──────────────────────────────────────────────────────────
+  // ── Mobile menu ─────────────────────────────────────────────────────────
   const isMobile = () => window.matchMedia('(max-width: 760px)').matches;
 
   function openMenu() {
