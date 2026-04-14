@@ -1,5 +1,5 @@
 # AI Usage Report
-
+---
 ## Overview
 This project is a front-end personal portfolio website developed to showcase academic background, technical skills, and projects. It runs entirely on the client side using HTML, CSS, and JavaScript, with EmailJS for contact handling and the GitHub API for dynamic data.
 
