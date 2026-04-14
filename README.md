@@ -1,7 +1,7 @@
 # Project description
 This project is a personal portfolio website built using HTML, CSS, and JavaScript to showcase my background, projects, and skills in a clear and organized way. I designed and structured the website to reflect my work and present it professionally. AI tools were used during development for debugging, performance improvements, and refining certain parts of the implementation, while the overall concept, design, and content were developed independently by me.
 
---
+---
 
 # Features
 
@@ -16,7 +16,7 @@ This project is a personal portfolio website built using HTML, CSS, and JavaScri
 - Contact form with validation and email sending (EmailJS)
 - Clear user feedback for errors and success messages
 
---
+---
 
 # Project Structure
 ```
@@ -35,7 +35,7 @@ This project is a personal portfolio website built using HTML, CSS, and JavaScri
 └── .gitignore
 
 ```
---
+---
 
 # Setup instructions
 1. Install Visual Studio Code (if not already installed).
@@ -50,7 +50,7 @@ https://github.com/RaneemAlshahrani/202277080-Raneem-Alshahrani-assignment3.git
 7. Open the index.html file.
 8. Open it in your browser (Run → Run Without Depugging), or install the Live Server extension in VS Code and click “Go Live.”
 
---
+---
 
 # Usage
 
@@ -63,12 +63,12 @@ https://github.com/RaneemAlshahrani/202277080-Raneem-Alshahrani-assignment3.git
 - Enter your name to personalize the experience
 - Fill out the contact form to send a message
 
---
+---
 
 # Short summary of AI use
 AI tools were used during development to assist with debugging, improving code structure, optimizing performance, and refining specific features such as API integration and validation logic. The overall structure, layout, design decisions, and content of the website were created independently by me. A detailed explanation of AI usage is provided in `ai-usage-report.md`.
 
---
+---
 
 # Contact
 
