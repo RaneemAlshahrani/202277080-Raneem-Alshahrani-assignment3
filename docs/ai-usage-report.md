@@ -17,26 +17,26 @@ The system is lightweight, responsive, and requires no backend or build tools.
 - Performed code review (CSS & JS)  
 - Suggested performance optimisations  
 - Helped debug GitHub API display issue  
-- Assisted in structuring documentation  
+- Assisted in improving code structure and documentation   
 
 ---
 
 ## Effective Use of AI
 
 ### 1. Code Review
-AI identified redundant CSS rules and inefficient JavaScript logic, improving code quality and readability.
+AI identified redundant CSS rules and inefficient JavaScript logic, improving code quality, readability, and maintainability.
 
 ### 2. Performance Optimisation
-Suggested lazy loading images, using `defer`, and improving font loading to reduce load time.
+Suggested improvements such as using `defer` for scripts, lazy loading images, and reducing unnecessary DOM operations.
 
 ### 3. Debugging
-Helped diagnose a visibility issue in the GitHub section caused by animation + async rendering conflict.
+Helped diagnose a visibility issue in the GitHub section caused by interaction between animations and dynamically loaded content.
 
 ### 4. API Integration
-Clarified GitHub API usage and improved data handling (sorting, filtering, error handling).
+Provided guidance on using the GitHub API, handling asynchronous data, sorting repositories, and managing errors.
 
 ### 5. Security Improvement
-Introduced sanitisation of API data to prevent XSS when using `innerHTML`.
+Introduced sanitisation of dynamically injected API data to reduce the risk of XSS when using `innerHTML`.
 
 ---
 
@@ -49,13 +49,14 @@ Introduced sanitisation of API data to prevent XSS when using `innerHTML`.
 ### CSS Concepts Learned:
 - CSS variables and theming  
 - Avoiding redundant rules  
-- Managing specificity and `!important`  
+- Managing specificity and reducing misuse of `!important`  
 
 ### JavaScript Concepts Learned:
 - API fetching and async handling  
 - localStorage vs sessionStorage  
 - DOM optimisation (caching elements)  
-- IntersectionObserver behavior  
+- IntersectionObserver behavior 
+- State-based UI updates   
 
 ---
 
@@ -70,7 +71,7 @@ Introduced sanitisation of API data to prevent XSS when using `innerHTML`.
 GitHub repositories were not visible due to a conflict between animations and dynamically loaded content.
 
 ### Challenge 2:
-CSS conflicts caused by misuse of `!important`, leading to unexpected layout behavior.
+CSS conflicts caused by improper styling decisions, leading to inconsistent UI behavior.
 
 ### Challenge 3:
 Project filtering and sorting logic interfered with each other, requiring better state management to ensure correct results.
@@ -84,7 +85,7 @@ Form validation required handling multiple edge cases (empty fields, invalid ema
 
 - All AI outputs were reviewed and tested  
 - Code was modified to fit project requirements  
-- No full features were copied directly  
+- No full features were copied directly without understanding    
 - Understanding was prioritised over copying  
 
 ---
@@ -92,9 +93,10 @@ Form validation required handling multiple edge cases (empty fields, invalid ema
 ## Innovation
 
 - Integrated live GitHub data dynamically  
-- Combined filtering + sorting system  
-- Added visitor personalization and session timer  
-- Applied performance and security improvements beyond requirements  
+- Combined filtering and sorting logic in one system  
+- Added visitor personalization using localStorage  
+- Implemented session-based visitor timer  
+- Applied performance and security improvements   
 
 ---
 
