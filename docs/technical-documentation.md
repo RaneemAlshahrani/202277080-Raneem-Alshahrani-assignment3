@@ -97,8 +97,13 @@ The application demonstrates client-side data handling using JavaScript.
 * **Local Storage**
   - Theme preference (light/dark mode) is saved
   - Font size preference is saved
+  - Visitor name is stored for personalization
   - Preferences persist across page reloads
 
+
+* **Session Storage**
+  - Tracks how long a visitor has been on the site during a session
+  
 * **Form Validation**
   - The contact form validates:
     - Required fields
