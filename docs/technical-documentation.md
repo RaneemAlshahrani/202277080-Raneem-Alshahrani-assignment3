@@ -10,6 +10,7 @@ The website runs primarily on the client side and uses a third-party service (Em
 * Front-end only (HTML, CSS, JavaScript)
 * No custom backend or database integration
 * Uses EmailJS as an external service for sending emails
+* Uses GitHub API for repositories
 * Optimized for desktop and mobile browsers
 
 ## Architecture
