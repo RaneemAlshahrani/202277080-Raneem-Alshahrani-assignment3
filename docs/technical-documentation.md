@@ -228,7 +228,12 @@ No additional configuration is required.
 ### Common Workflows
 
 * **Viewing Projects**: Scroll to the Projects section
+* **Filtering Projects**: Select a project category from the filter dropdown
+* **Sorting Projects**: Use "Sort by Date" or "Sort by Name"
+* **Viewing GitHub Data**: Scroll to the GitHub section to see repositories and live statistics
 * **Changing Theme**: Click the moon/sun icon
+* **Adjusting Font Size**: Click the A+/A- button
+* **Using Personalization**: Enter a visitor name and save it
 * **Mobile Navigation**: Click ☰ on mobile view
 * **Contacting**: Fill out the contact form to send an email
 * **Example User Interaction**:
@@ -238,12 +243,31 @@ No additional configuration is required.
   - Click "Sort by Date" → Projects reorder from newest to oldest
   - Click "Sort by Name" → Projects reorder alphabetically
 
+  - Visit the GitHub section → Repository cards and GitHub statistics load dynamically
+
   - Submit the contact form with missing fields → Error message is shown
   - Submit with valid input → Success message appears and email is sent
   
 ## API Reference
 
 This project uses a third-party API service (EmailJS) for sending emails.
+
+### GitHub API Integration
+
+* Fetches public repositories for the portfolio owner
+* Fetches GitHub user profile data for follower count
+* Supports:
+  - Repository rendering
+  - Sorting by latest update
+  - Total star calculation
+  - Follower count display
+
+Example:
+
+```js
+fetch(`https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=100`)
+fetch(`https://api.github.com/users/${GH_USER}`)
+```
 
 ### EmailJS Integration
 
@@ -267,7 +291,9 @@ emailjs.send(serviceID, templateID, {
 ### Internal JavaScript Functions (Examples)
 
 * `applyTheme(theme)` – switches between light and dark modes
+* `applyFont(px)` – updates font size and stores preference
 * `openMenu()` / `closeMenu()` – controls mobile menu visibility
+* `filterProjects()` – filters and sorts visible project cards
 * `IntersectionObserver` – triggers scroll-based animations
 
 ## Troubleshooting
