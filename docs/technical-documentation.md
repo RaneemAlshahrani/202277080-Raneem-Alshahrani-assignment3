@@ -49,8 +49,11 @@ This structure separates content, styling, logic, and documentation for better m
 
 * Navigation Bar
 * Hero Section
+* Visitor Timer Section
+* Visitor Name Personalization Section
 * About Section
 * Projects Section
+* GitHub Repositories Section
 * Skills Section
 * Contact Form
 * Footer
@@ -82,6 +85,11 @@ The website includes interactive features where content updates dynamically base
     - Date (descending)
     - Name (alphabetical)
   - The order of project cards updates dynamically
+
+* **GitHub Repository Rendering**
+  - Repositories are fetched dynamically from the GitHub API
+  - Repository cards are generated and inserted into the page using JavaScript
+  - Repositories are sorted by most recently updated
 
 * **Empty State Handling**
   - When no project matches the selected filter, a message is displayed:
@@ -116,10 +124,17 @@ The application demonstrates client-side data handling using JavaScript.
   - Emails are delivered to the portfolio owner
   - Auto-reply is sent to the user
 
+* **GitHub API Data**
+  - Repository data is fetched from the GitHub REST API
+  - User profile data is fetched to retrieve follower count
+  - Repository descriptions are sanitised before rendering to reduce XSS risk
+
 * **Error Handling**
   - If email sending fails, a message is displayed:
-    - "Failed to send message. Please try again."
-
+    - "Failed to send. Please try again."
+  - If GitHub data cannot be loaded, an error message is displayed:
+    - "Unable to load repositories. Please try again later."
+  
 ## Animation and Transitions
 
 The website includes smooth animations to improve user experience.
@@ -128,7 +143,7 @@ The website includes smooth animations to improve user experience.
 
 * **Scroll Reveal Animation**
   - Sections fade and slide into view when scrolling
-  - Implemented using IntersectionObserver
+  - Implemented using `IntersectionObserver`
 
 * **Hover Effects**
   - Buttons, project cards, and links respond visually on hover
